@@ -21,3 +21,9 @@ class BasePage:
         :param args: turple (метод поиска, значение)
         """
         return self.browser.find_element(*args)
+
+    def finds(self, args):
+        """ Найти html-элементы на веб-странице
+        :param args: turple (метод поиска, значение)
+        """
+        return self.browser.find_elements(*args)
