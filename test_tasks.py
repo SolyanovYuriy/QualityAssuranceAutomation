@@ -59,3 +59,27 @@ def test_second_task_from_get_test_tasks(browser):
     assert len(partners_current_region - partners_new_region) != 0, "Список партнеров не изменился"
     assert browser.current_url.find("kamchatsk") != -1, "url вкладки не cодержит информацию выбранного региона"
     assert browser.title.find("Камчатс") != -1, "title вкладки не cодержит информацию выбранного региона"
+
+
+def test_third_task_from_get_test_tasks(browser):
+    sbis_ru = Sbis(browser)
+    sbis_ru.open_web_page_sbis_ru()
+
+    sbis_ru.scroll_download_local_versions()
+    assert sbis_ru.download_local_versions_is_displayed()
+    sbis_ru.click_download_local_versions()
+
+    sbis_ru.find_tab_sbis_plagin()
+    sbis_ru.click_tab_sbis_plagin()
+    time.sleep(1)
+    sbis_ru.find_tab_os_windows()
+    sbis_ru.find_tab_os_windows()
+    time.sleep(1)
+    sbis_ru.find_web_installer()
+    sbis_ru.click_web_installer()
+    time.sleep(5)
+
+    assert len(sbis_ru.get_list_of_exe_files_in_current_directory_with_path()) > 0, "Плагин не скачался"
+
+    assert sbis_ru.get_size_file_from_website() == sbis_ru.get_size_file_from_current_directory(), \
+        "Размер скаченного файла не совпадает с размером файла, указанного на сайте"
