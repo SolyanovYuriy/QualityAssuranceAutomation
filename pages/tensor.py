@@ -1,7 +1,6 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
-
 powerInPeopleBlockLocator =         '//*[text()="Сила в людях"]'
 moredetailedLocator =               '//*[@class="tensor_ru-Index__block4-bg"]/descendant::a[text()="Подробнее"]'
 workingChapterLocator =             '//*[text()="Работаем"]'

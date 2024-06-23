@@ -12,7 +12,7 @@ class BasePage:
         return self.browser.find_element(*args)
 
     def go_to_other_tab(self):
-        """ Сделать активной другую открывшуюся вкладку
+        """ Сделать активной (перенести фокус Selenium) другую открывшуюся вкладку
         """
         return self.browser.switch_to.window(self.browser.window_handles[-1])
 
